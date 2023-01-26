@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FleetioAssessment</string>
+    <string name="detail_fragment_name_label">Name</string>
+    <string name="detail_fragment_status_label">Status:</string>
+    <string name="detail_fragment_driver_label">"Driver: "</string>
+    <string name="detail_fragment_vin_label">Vin:</string>
+    <string name="detail_fragment_license_plate_label">License Plate:</string>
+    <string name="detail_fragment_odometer_label">Odometer:</string>
+    <string name="detail_fragment_secondary_meter_label">Secondary Meter:</string>
+    <string name="main_fragment_name_label">Name:</string>
+    <string name="main_fragment_make_label">Make:</string>
+    <string name="main_fragment_model_label">Model</string>
+    <string name="detail_fragment_ownership_label">Ownership:</string>
+</resources>

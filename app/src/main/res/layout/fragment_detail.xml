@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vehicle"
+            type="com.android.example.fleetioassessment.data.Vehicle" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/vehicleImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:adjustViewBounds="true"
+            app:imageUrl="@{vehicle.thumbnailUrl}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vehicleImageView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleStatusLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_fragment_status_label"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleStatusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:text="@{vehicle.status}" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleDriverLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_fragment_driver_label"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleStatusLabel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleDriverTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleStatusTextView"
+                    app:text="@{vehicle.driver.fullName}" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleOwnershipLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_fragment_ownership_label"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleDriverLabel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleOwnershipTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleDriverTextView"
+                    app:text="@{vehicle.ownership}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleVinLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_fragment_vin_label"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleOwnershipLabel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleVinTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleOwnershipTextView"
+                    app:text="@{vehicle.vin}" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleLicensePlateLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_fragment_license_plate_label"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleVinLabel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleLicensePlateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleVinTextView"
+                    app:text="@{vehicle.licensePlate}" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleOdometerLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_fragment_odometer_label"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleLicensePlateLabel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleOdometerTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/vehicleOdometerLabel"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleLicensePlateTextView"
+                    app:text="@{vehicle.meter1Value}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleOdometerUnitTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleLicensePlateTextView"
+                    app:text="@{vehicle.meter1Units}" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleSecondaryMeterLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_fragment_secondary_meter_label"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleOdometerLabel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleSecondaryMeterTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/vehicleSecondaryMeterUnitTextView"
+                    app:layout_constraintStart_toEndOf="@+id/vehicleSecondaryMeterLabel"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleOdometerTextView"
+                    app:text="@{vehicle.meter2Value}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vehicleSecondaryMeterUnitTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/vehicleSecondaryMeterTextView"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleOdometerTextView"
+                    app:text="@{vehicle.meter2Units}" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

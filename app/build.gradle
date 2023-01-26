@@ -1,0 +1,93 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk project.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.android.example.fleetioassessment"
+        minSdk project.coreMinSdk
+        targetSdk project.compileSdkVersion
+
+        versionCode 1
+        versionName project.appVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "FLEETIO_TOKEN", "\"${fleetio_token}\""
+        buildConfigField "String", "FLEETIO_AUTH", "\"${fleetion_auth}\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility project.jdkVersion
+        targetCompatibility project.jdkVersion
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:$kotlinCoreVersion"
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    implementation "com.google.dagger:dagger:$dagger"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$SwiperRefreshVersion"
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+    kapt "com.google.dagger:dagger-android-processor:$dagger"
+
+    implementation "androidx.paging:paging-runtime-ktx:$paging"
+    implementation "androidx.paging:paging-common-ktx:$paging"
+
+    implementation "androidx.recyclerview:recyclerview:$recyclerview"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:retrofit-mock:$retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit"
+
+
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializationVersion"
+    implementation 'androidx.fragment:fragment-ktx:1.2.5'
+
+    // Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:${glideVersion}"
+    kapt "com.github.bumptech.glide:compiler:${glideVersion}"
+
+
+
+
+//    implementation project.dagger.runtime
+//    implementation project.dagger.android
+//    implementation project.dagger.android_support
+
+//    kapt project.dagger.android_support_compiler
+//    kapt project.dagger.compiler
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
